@@ -20,7 +20,8 @@ whistler.save
 yaletown = Store.new(name: 'Yaletown', annual_revenue: 430000, mens_apparel: true, womens_apparel: true)
 yaletown.save
 
-men_stores = Store.where(mens_apparel: true).all.each { |s| puts s.name ,s.annual_revenue }
+@men_stores = Store.where(mens_apparel: true).all.each { |s| puts s.name ,s.annual_revenue }
 
-#big_womens_stores = Store.where(womens_apparel: true).having("annual_revenue < ?",1000000).all.each { |s| puts s.name ,s.annual_revenue }
+
+@small_womens_stores = Store.where(womens_apparel: true).where('annual_revenue < 1000000').all.each { |s| puts s.name ,s.annual_revenue }
 
